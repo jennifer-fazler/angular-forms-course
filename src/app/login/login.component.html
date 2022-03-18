@@ -8,12 +8,10 @@
       <mat-form-field>
 
         <input matInput type="email" name="email"
-                ngModel [ngModelOptions]="{standalone:true}"
+                [(ngModel)]="val.email"
                 #email="ngModel"
-                (ngModelChange)="onEmailChange($event)"
                required email minlength="3" maxlength="20"
                placeholder="Email">
-<!-- pattern="[a-z]" was demonstrated but doesn't make sense for email so it was removed from our test code. -->
 
         <mat-error *ngIf="email.errors?.required">The email is mandatory.</mat-error>
         <mat-error *ngIf="email.errors?.minlength">Your email must have minimum {{email.errors?.minlength.requiredLength}} chars,
@@ -25,7 +23,7 @@
       <mat-form-field>
 
         <input matInput type="password" name="password"
-              ngModel #password="ngModel" required
+              [(ngModel)]="val.password" #password="ngModel" required
               placeholder="Password">
 
       </mat-form-field>
