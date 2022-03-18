@@ -8,7 +8,8 @@
       <mat-form-field>
 
         <input matInput type="email" name="email"
-                ngModel [ngModelOptions]="{updateOn: 'submit'}" #email="ngModel"
+                ngModel [ngModelOptions]="{standalone:true}"
+                #email="ngModel"
                 (ngModelChange)="onEmailChange($event)"
                required email minlength="3" maxlength="20"
                placeholder="Email">
@@ -37,7 +38,7 @@
     </form>
 
     <div class="form-val">
-      {{ email.value | json }}
+      {{ loginForm.value | json }}
     </div>
 
   </mat-card-content>
