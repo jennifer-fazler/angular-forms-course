@@ -8,7 +8,8 @@
       <mat-form-field>
 
         <input matInput type="email" name="email"
-                ngModel #email="ngModel"
+                ngModel [ngModelOptions]="{updateOn: 'submit'}" #email="ngModel"
+                (ngModelChange)="onEmailChange($event)"
                required email minlength="3" maxlength="20"
                placeholder="Email">
 <!-- pattern="[a-z]" was demonstrated but doesn't make sense for email so it was removed from our test code. -->
@@ -36,7 +37,7 @@
     </form>
 
     <div class="form-val">
-      {{ email.errors | json }}
+      {{ email.value | json }}
     </div>
 
   </mat-card-content>
